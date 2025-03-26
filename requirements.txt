@@ -1,0 +1,16 @@
+# Core LLM & RAG Components
+langchain==0.1.16
+langchain_community==0.0.38
+langchainhub==0.1.20
+
+# Vector Database & Embeddings
+faiss-cpu
+sentence-transformers
+
+# Document Processing
+pypdf
+PyPDF2
+lxml
+
+# Data Importing
+kagglehub
