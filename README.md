@@ -107,7 +107,7 @@ cd bin
 With your virtual environment active, run `llm.py` to verify basic inference:
 
 ```bash
-source ~/rag-env/bin/activate
+source rag-env/bin/activate
 python llm.py
 ```
 
