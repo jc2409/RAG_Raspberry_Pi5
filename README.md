@@ -99,7 +99,7 @@ Quantize the model:
 
 ```bash
 cd bin
-./llama-quantize --allow-requantize ../../../models/ggml-model-Q4_K_M.gguf ../../../models/llama3.1-8b-instruct.Q
+./llama-quantize --allow-requantize ../../../<Your Working Directory>/models/ggml-model-Q4_K_M.gguf ../../../<Your Working Directory>/models/llama3.1-8b-instruct.Q4_0_arm.gguf Q4_0
 ```
 
 ## Testing and Deployment
