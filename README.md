@@ -2,6 +2,8 @@
 
 ## Introduction to Retrieval Augmented Generation (RAG)
 
+![RAG Raspberry Pi](./images/RPI_Gen_Image.png)
+
 Retrieval Augmented Generation (RAG) is a powerful method that enhances Large Language Models (LLMs) by combining their generative capabilities with relevant information retrieved from external databases. RAG enables chatbots and similar applications to produce contextually accurate and up-to-date responses by fetching pertinent information from a knowledge base or documents at runtime.
 
 In RAG, documents are embedded into vector representations and stored in a Vector Database (VectorDB). When a user poses a query, the system retrieves the most relevant document embeddings and provides them as context to the LLM, resulting in more informed and precise answers.
@@ -140,3 +142,22 @@ python rag.py
 ```
 
 Your chatbot is now configured to generate informed responses using a combination of embedded documents and the LLM's generative strengths.
+
+### Test Results
+We evaluated the performance of the RAG-enabled chatbot by comparing responses from two versions of the LLM—one without context (basic LLM) and one utilizing context (RAG-enabled LLM).
+
+When the user asked the question, `How long was Lincoln's formal education?`, the basic LLM provided an incorrect response of 12 years due to a lack of accurate contextual information.
+![Basic LLM Prompt](./images/basic_llm_prompt.png)
+
+![Basic LLM response](./images/basic_llm_response.png)
+
+![Resource](./images/general_info.png)
+
+In contrast, the RAG-enabled LLM successfully retrieved relevant information from the VectorDB and provided an accurate response based on the retrieved context.
+
+![RAG LLM Prompt](./images/RAG_llm_prompt.png)
+
+![Vector DB](./images/vector_db.png)
+*The data stored in the vector database containing information about Lincoln's education.*
+
+![RAG LLM Response](./images/RAG_llm_response.png)
