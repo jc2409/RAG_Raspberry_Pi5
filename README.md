@@ -12,6 +12,15 @@ In RAG, documents are embedded into vector representations and stored in a Vecto
 
 This tutorial demonstrates building a RAG-enabled chatbot optimized for Arm architecture using open-source technologies such as llama-cpp-python and FAISS. Specifically designed for Raspberry Pi 5 (8GB RAM, at least 32GB Disk), the chatbot integrates the Llama-3.1-8B model for document retrieval, leveraging llama-cpp-python's optimized backend for high-performance inference.
 
+## Getting Started
+
+First, clone this repository to your Raspberry Pi:
+
+```bash
+git clone https://github.com/jc2409/RAG_Raspberry_Pi5.git
+cd RAG_Raspberry_Pi5
+```
+
 ## Installation
 
 ### System Dependencies
@@ -132,6 +141,13 @@ Run the embedding script:
 ```bash
 python vector_embedding.py
 ```
+> ⚠️ **Note:** This step can take **several hours**, depending on the size of your dataset and hardware.
+>
+> 💡 **Tip:** You can reduce the time by:
+> - Using a smaller dataset  
+> - Reducing the number of documents to embed  
+> - Lowering the embedding model size (e.g., switching to a smaller transformer model)
+
 
 3. **Run the RAG Application**:
 
