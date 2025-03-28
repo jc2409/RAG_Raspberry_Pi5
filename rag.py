@@ -13,11 +13,7 @@ from langchain_core.runnables import ConfigurableField
 # Configure paths
 BASE_PATH = "."
 VECTOR_DIR = os.path.join(BASE_PATH, "vector")
-DATA_DIR = os.path.join(BASE_PATH, "data/datasets/rtatman/questionanswer-dataset/versions/1/text_data/text_data")
 MODEL_PATH = os.path.join(BASE_PATH, "models/llama3.1-8b-instruct.Q4_0_arm.gguf")
-
-# Ensure directories exist
-os.makedirs(VECTOR_DIR, exist_ok=True)
 
 # Token Streaming
 class StreamingCallback(StreamingStdOutCallbackHandler):
@@ -44,9 +40,7 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs).replace("Context:", "").strip()
 
 def main():
-    try:
-        question = input("Enter your prompt: ")
-        
+    try:        
         # Initialize LLM
         callbacks = [StreamingCallback()]
         model = LlamaCpp(
@@ -80,10 +74,15 @@ def main():
             | model
             | StrOutputParser()
         )
-
-        # Generate response
-        response = chain.invoke(question)
-        print(response)
+        while True:
+            question = input("Enter your prompt (Press q to quit): ")
+            
+            if question == 'q':
+                break
+            
+            # Generate response
+            response = chain.invoke(question)
+            print(response)
         
     except Exception as e:
         print(f"Error processing query: {e}")

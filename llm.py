@@ -28,7 +28,6 @@ class StreamingCallback(StreamingStdOutCallbackHandler):
 
 
 def main():
-    question = input("Enter your query: ")
     
     callbacks = [StreamingCallback()]
     
@@ -50,11 +49,20 @@ def main():
     Answer: <|eot_id|>"""
     
     prompt = PromptTemplate(template=template, input_variables=['question'])
-    chain = RunnablePassthrough().assign(question=lambda x: x) | prompt | model | StrOutputParser()
     
-    response = chain.invoke({"question": question})
-    
-    print(response)
+    while True:
+        question = input("Enter your prompt (Press q to quit): ")
+        
+        if question == 'q':
+            break
+        
+        chain = RunnablePassthrough().assign(question=lambda x: x) | prompt | model | StrOutputParser()
+        
+        response = chain.invoke({"question": question})
+        
+        print(response)
+        
+        
     
 if __name__=="__main__":
     main()
