@@ -17,6 +17,7 @@ This tutorial demonstrates building a RAG-enabled chatbot optimized for Arm arch
 First, clone this repository to your Raspberry Pi:
 
 ```bash
+cd ~
 git clone https://github.com/jc2409/RAG_Raspberry_Pi5.git
 cd RAG_Raspberry_Pi5
 ```
