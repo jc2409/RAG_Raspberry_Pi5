@@ -73,17 +73,18 @@ pip install -r requirements.txt
 
 ### llama-cpp-python Installation
 
-Install `llama-cpp-python` optimized for Arm CPUs:
+Install `llama-cpp-python` optimized for Arm CPUs in the RAG_Raspberry_Pi5 folder:
 
 ```bash
 pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
 ```
 
+
 ## Model Setup
 
 ### Download LLM Model
 
-Create a models directory and download the model:
+Create a models directory in the RAG_Raspberry_Pi5 folder and download the model:
 
 ```bash
 mkdir models
@@ -96,7 +97,7 @@ wget https://huggingface.co/chatpdflocal/llama3.1-8b-gguf/resolve/main/ggml-mode
 Clone and build `llama.cpp`:
 
 ```bash
-cd ~
+cd ~/RAG_Raspberry_Pi5
 git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp
 mkdir build && cd build
@@ -108,7 +109,7 @@ Quantize the model:
 
 ```bash
 cd bin
-./llama-quantize --allow-requantize ../../../<Your Working Directory>/models/ggml-model-Q4_K_M.gguf ../../../<Your Working Directory>/models/llama3.1-8b-instruct.Q4_0_arm.gguf Q4_0
+./llama-quantize --allow-requantize ~/RAG_Raspberry_Pi5/models/ggml-model-Q4_K_M.gguf ~/RAG_Raspberry_Pi5/models/llama3.1-8b-instruct.Q4_0_arm.gguf Q4_0
 ```
 
 ## Testing and Deployment
