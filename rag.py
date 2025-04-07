@@ -11,8 +11,8 @@ from langchain_core.runnables import ConfigurableField
 
 
 # Configure paths
-BASE_PATH = "."
-VECTOR_DIR = os.path.join(BASE_PATH, "vector")
+BASE_PATH = os.path.expanduser("~/RAG_Raspberry_Pi5")
+VECTOR_DIR = os.path.join(BASE_PATH, "vectorDB")
 MODEL_PATH = os.path.join(BASE_PATH, "models/llama3.1-8b-instruct.Q4_0_arm.gguf")
 
 # Token Streaming
