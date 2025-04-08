@@ -33,35 +33,6 @@ sudo apt update
 sudo apt install python3-pip python3-venv cmake -y
 ```
 
-### Create Requirements File
-
-Create a `requirements.txt` file:
-
-```bash
-vim requirements.txt
-```
-
-Add these dependencies:
-
-```
-# Core LLM & RAG Components
-langchain==0.1.16
-langchain_community==0.0.38
-langchainhub==0.1.20
-
-# Vector Database & Embeddings
-faiss-cpu
-sentence-transformers
-
-# Document Processing
-pypdf
-PyPDF2
-lxml
-
-# Data Importing
-kagglehub
-```
-
 ### Python Environment
 
 Set up the virtual environment:
@@ -102,7 +73,7 @@ cd ~/RAG_Raspberry_Pi5
 git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp
 mkdir build && cd build
-cmake .. -DCMAKE_CXX_FLAGS="-mcpu=native" -DCMAKE_C_FLAGS="-mcpu=native"
+cmake .. -DCMAKE_CXX_FLAGS="-mcpu=native" -DCMAKE_C_FLAGS="-mcpu=native" -DLLAMA_CURL=OFF
 cmake --build . -v --config Release -j $(nproc)
 ```
 
